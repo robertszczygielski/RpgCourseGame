@@ -3,7 +3,7 @@ package com.eclipse.ec.repository;
 import com.eclipse.ec.enums.Places;
 import com.eclipse.ec.enums.Wapens;
 
-public class Warrior extends Character {
+public class Warrior extends Enemie {
 	
 	private Wapens wapen;
 	private Places visitedPalce;

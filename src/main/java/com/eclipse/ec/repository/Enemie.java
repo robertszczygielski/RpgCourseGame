@@ -1,18 +1,18 @@
 package com.eclipse.ec.repository;
 
-public class Character {
+public class Enemie implements Comparable<Enemie> {
 
 	private int hitPoints;
 	private int intiative;
 	private String name;
 
-	public Character(int hitPoints, int intiative, String name) {
+	public Enemie(int hitPoints, int intiative, String name) {
 		this.hitPoints = hitPoints;
 		this.intiative = intiative;
 		this.name = name;
 	}
 
-	public Character() {
+	public Enemie() {
 		hitPoints = 2;
 		intiative = 0;
 		name = "NN";
@@ -44,6 +44,18 @@ public class Character {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public int compareTo(Enemie a) {
+		if (this.intiative < a.intiative ) return 1;
+		if (this.intiative > a.intiative ) return -1;
+		return 0; // jeśli są równe
+	}
+
+	@Override
+	public String toString() {
+		return "Enemie [hitPoints=" + hitPoints + ", intiative=" + intiative + ", name=" + name + "]";
 	}
 	
 }

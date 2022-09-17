@@ -1,5 +1,8 @@
 package com.eclipse.ec;
 
+import com.eclipse.ec.domain.MountainsCharacter;
+import com.eclipse.ec.domain.UnicornForest;
+import com.eclipse.ec.services.UnicornForestService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -16,7 +19,6 @@ public class EcApplication {
 //		SpringApplication.run(EcApplication.class, args);
 //	}
 
-
 	public static void main(String[] args) {
 		Warrior warrior = new Warrior();
 		try {
@@ -24,13 +26,13 @@ public class EcApplication {
 			warrior.setVisitedPalce(Places.GRAVEYARD);
 			warrior.setWapen(Wapens.STICK);
 			warrior.setHitPoints(30);
-			warrior.setIntiative(20);
+			warrior.setIntiative(2);
 		} catch (Exception e) {
 			System.out.println("Your Warrior has to short name");
 		}
 		
-		ForestService forestService = new ForestService();
-		Forest forest = forestService.createForest();
+		UnicornForestService forestService = new UnicornForestService();
+		UnicornForest forest = forestService.createForest(args[0], args[1]);
 		forest.fight(warrior);
 		
 	}

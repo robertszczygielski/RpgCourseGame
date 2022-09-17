@@ -1,28 +1,28 @@
 package com.eclipse.ec.domain;
 
-import com.eclipse.ec.repository.Character;
+import com.eclipse.ec.repository.Enemie;
 import com.eclipse.ec.repository.Warrior;
 
 public class Forest extends Place implements Occurenable {
 
-	private Character[] enemies;
+	private Enemie[] enemies;
 
 	public Forest() {
 	};
 
 	public Forest(int enemiesAmoutn) {
-		enemies = new Character[enemiesAmoutn];
+		enemies = new Enemie[enemiesAmoutn];
 	}
 
-	public Character[] getEnemies() {
+	public Enemie[] getEnemies() {
 		return enemies;
 	}
 
-	public void setEnemies(Character[] enemies) {
+	public void setEnemies(Enemie[] enemies) {
 		this.enemies = enemies;
 	}
 
-	public void setEnemies(Character characere, int idx) {
+	public void setEnemies(Enemie characere, int idx) {
 		this.enemies[idx] = characere;
 	}
 
@@ -39,14 +39,14 @@ public class Forest extends Place implements Occurenable {
 	public void fight(Warrior warrior) {
 		System.out.println("Now you see " + enemies.length + " enemies");
 		System.out.print("they names are: ");
-		for (Character enemy : enemies) {
+		for (Enemie enemy : enemies) {
 			System.out.print(enemy.getName() + ", ");
 		}
 		System.out.println();
 		System.out.println("========================================================");
 		System.out.println("Fight: ");
 
-		for (Character enemy : enemies) {
+		for (Enemie enemy : enemies) {
 			if ((enemy.getIntiative()) <= warrior.getIntiative()) {
 				int warriorHit = warrior.getHitPoints() - warrior.getWapen().getExtraHit();
 				int hp = enemy.getHitPoints() - warriorHit;

@@ -2,7 +2,7 @@ package com.eclipse.ec.services;
 
 import com.eclipse.ec.domain.Forest;
 import com.eclipse.ec.repository.Zombe;
-import com.eclipse.ec.repository.Character;
+import com.eclipse.ec.repository.Enemie;
 
 public class ForestService {
 
@@ -14,9 +14,9 @@ public class ForestService {
 		teacharZombe.setHitPoints(2);
 		teacharZombe.setName("Teacher Zombe");
 		
-		Character dogZombe = new Zombe();
+		Enemie dogZombe = new Zombe();
 		
-		Character[] enemies = { teacharZombe, dogZombe };
+		Enemie[] enemies = { teacharZombe, dogZombe };
 		forest.setEnemies(enemies);
 		
 		return forest;
