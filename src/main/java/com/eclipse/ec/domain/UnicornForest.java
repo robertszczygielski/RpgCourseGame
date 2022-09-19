@@ -67,9 +67,9 @@ public class UnicornForest<T> extends Place implements Occurenable {
             if (enemy.getHitPoints() < 0) {
                 System.out.println("You have defited " + enemy);
             }
-
-            fightWithBoss(warrior);
         }
+        
+        fightWithBoss(warrior);
     }
 
     private void fightWithBoss(Warrior warrior) {
@@ -87,6 +87,5 @@ public class UnicornForest<T> extends Place implements Occurenable {
                 System.out.println("You are defeated");
             }
         }
-
     }
 }

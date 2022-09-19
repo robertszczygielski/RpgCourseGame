@@ -1,16 +1,13 @@
 package com.eclipse.ec;
 
-import com.eclipse.ec.domain.MountainsCharacter;
-import com.eclipse.ec.domain.UnicornForest;
-import com.eclipse.ec.services.UnicornForestService;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.eclipse.ec.domain.Forest;
+import com.eclipse.ec.domain.OldCastle;
 import com.eclipse.ec.enums.Places;
 import com.eclipse.ec.enums.Wapens;
 import com.eclipse.ec.repository.Warrior;
-import com.eclipse.ec.services.ForestService;
+import com.eclipse.ec.services.OldCastleService;
+
+import java.util.Optional;
+import java.util.stream.Stream;
 
 // @SpringBootApplication
 public class EcApplication {
@@ -19,21 +16,28 @@ public class EcApplication {
 //		SpringApplication.run(EcApplication.class, args);
 //	}
 
-	public static void main(String[] args) {
-		Warrior warrior = new Warrior();
-		try {
-			warrior.setName("Conan B.");
-			warrior.setVisitedPalce(Places.GRAVEYARD);
-			warrior.setWapen(Wapens.STICK);
-			warrior.setHitPoints(30);
-			warrior.setIntiative(2);
-		} catch (Exception e) {
-			System.out.println("Your Warrior has to short name");
-		}
-		
-		UnicornForestService forestService = new UnicornForestService();
-		UnicornForest forest = forestService.createForest(args[0], args[1]);
-		forest.fight(warrior);
-		
-	}
+    public static void main(String[] args) {
+        Optional<Object> nameOfWapen = Stream.of(Wapens.values())
+                .filter(it -> it.getExtraHit() == 5)
+                .findFirst()
+                .map(it -> it.name());
+    }
+
+    public static void main1(String[] args) {
+        Warrior warrior = new Warrior();
+        try {
+            warrior.setName("Conan B.");
+            warrior.setVisitedPalce(Places.GRAVEYARD);
+            warrior.setWapen(Wapens.STICK);
+            warrior.setHitPoints(30);
+            warrior.setIntiative(2);
+        } catch (Exception e) {
+            System.out.println("Your Warrior has to short name");
+        }
+
+        OldCastleService forestService = new OldCastleService();
+        OldCastle forest = forestService.createForest();
+        forest.fight(warrior);
+
+    }
 }
