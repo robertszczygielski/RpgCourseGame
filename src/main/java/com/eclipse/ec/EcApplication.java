@@ -2,22 +2,24 @@ package com.eclipse.ec;
 
 import com.eclipse.ec.domain.OldCastle;
 import com.eclipse.ec.enums.Places;
-import com.eclipse.ec.enums.Wapens;
+import com.eclipse.ec.enums.Weapon;
 import com.eclipse.ec.repository.Warrior;
 import com.eclipse.ec.services.OldCastleService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Optional;
 import java.util.stream.Stream;
 
-// @SpringBootApplication
+ @SpringBootApplication
 public class EcApplication {
 
-//	public static void main(String[] args) {
-//		SpringApplication.run(EcApplication.class, args);
-//	}
+	public static void main(String[] args) {
+        SpringApplication.run(EcApplication.class, args);
+	}
 
-    public static void main(String[] args) {
-        Optional<Object> nameOfWapen = Stream.of(Wapens.values())
+    public static void mainA(String[] args) {
+        Optional<Object> nameOfWeapon = Stream.of(Weapon.values())
                 .filter(it -> it.getExtraHit() == 5)
                 .findFirst()
                 .map(it -> it.name());
@@ -27,10 +29,10 @@ public class EcApplication {
         Warrior warrior = new Warrior();
         try {
             warrior.setName("Conan B.");
-            warrior.setVisitedPalce(Places.GRAVEYARD);
-            warrior.setWapen(Wapens.STICK);
+            warrior.setVisitedPlace(Places.GRAVEYARD);
+            warrior.setWeapon(Weapon.STICK);
             warrior.setHitPoints(30);
-            warrior.setIntiative(2);
+            warrior.setInitiative(2);
         } catch (Exception e) {
             System.out.println("Your Warrior has to short name");
         }

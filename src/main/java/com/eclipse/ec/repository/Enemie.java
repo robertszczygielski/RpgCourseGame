@@ -3,18 +3,18 @@ package com.eclipse.ec.repository;
 public class Enemie implements Comparable<Enemie> {
 
 	private int hitPoints;
-	private int intiative;
+	private int initiative;
 	private String name;
 
-	public Enemie(int hitPoints, int intiative, String name) {
+	public Enemie(int hitPoints, int initiative, String name) {
 		this.hitPoints = hitPoints;
-		this.intiative = intiative;
+		this.initiative = initiative;
 		this.name = name;
 	}
 
 	public Enemie() {
 		hitPoints = 2;
-		intiative = 0;
+		initiative = 0;
 		name = "NN";
 	}
 
@@ -30,12 +30,12 @@ public class Enemie implements Comparable<Enemie> {
 		this.hitPoints = Integer.valueOf(hitPoints);
 	}
 
-	public int getIntiative() {
-		return intiative;
+	public int getInitiative() {
+		return initiative;
 	}
 
-	public void setIntiative(int intiative) {
-		this.intiative = intiative;
+	public void setInitiative(int initiative) {
+		this.initiative = initiative;
 	}
 
 	public String getName() {
@@ -48,14 +48,14 @@ public class Enemie implements Comparable<Enemie> {
 
 	@Override
 	public int compareTo(Enemie a) {
-		if (this.intiative < a.intiative ) return 1;
-		if (this.intiative > a.intiative ) return -1;
+		if (this.initiative < a.initiative) return 1;
+		if (this.initiative > a.initiative) return -1;
 		return 0; // jeśli są równe
 	}
 
 	@Override
 	public String toString() {
-		return "Enemie [hitPoints=" + hitPoints + ", intiative=" + intiative + ", name=" + name + "]";
+		return "Enemie [hitPoints=" + hitPoints + ", initiative=" + initiative + ", name=" + name + "]";
 	}
 	
 }

@@ -10,8 +10,8 @@ public class Forest extends Place implements Occurenable {
 	public Forest() {
 	};
 
-	public Forest(int enemiesAmoutn) {
-		enemies = new Enemie[enemiesAmoutn];
+	public Forest(int enemiesAmount) {
+		enemies = new Enemie[enemiesAmount];
 	}
 
 	public Enemie[] getEnemies() {
@@ -22,8 +22,8 @@ public class Forest extends Place implements Occurenable {
 		this.enemies = enemies;
 	}
 
-	public void setEnemies(Enemie characere, int idx) {
-		this.enemies[idx] = characere;
+	public void setEnemies(Enemie character, int idx) {
+		this.enemies[idx] = character;
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class Forest extends Place implements Occurenable {
 	}
 
 	@Override
-	public String occurenceAtTimeOfDay() {
+	public String occurrenceAtTimeOfDay() {
 		return "Midnight";
 	}
 
@@ -47,20 +47,48 @@ public class Forest extends Place implements Occurenable {
 		System.out.println("Fight: ");
 
 		for (Enemie enemy : enemies) {
-			if ((enemy.getIntiative()) <= warrior.getIntiative()) {
-				int warriorHit = warrior.getHitPoints() - warrior.getWapen().getExtraHit();
+			if ((enemy.getInitiative()) <= warrior.getInitiative()) {
+				int warriorHit = warrior.getHitPoints() - warrior.getWeapon().getExtraHit();
 				int hp = enemy.getHitPoints() - warriorHit;
 				enemy.setHitPoints(hp);
 			} else {
 				int hp = warrior.getHitPoints() - enemy.getHitPoints();
-				System.out.println("You was wonded, HP = " + hp);
+				System.out.println("You was wounded, HP = " + hp);
 				warrior.setHitPoints(hp);
 			}
 
 			if (enemy.getHitPoints() < 0) {
-				System.out.println("You have defited " + enemy.getName());
+				System.out.println("You have defeated " + enemy.getName());
 			}
 
 		}
+	}
+
+	public String fightInWeb(Warrior warrior) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Now you see " + enemies.length + " enemies");
+		sb.append("they names are: ");
+		for (Enemie enemy : enemies) {
+			sb.append(enemy.getName() + ", ");
+		}
+		sb.append("========================================================");
+		sb.append("Fight: ");
+
+		for (Enemie enemy : enemies) {
+			if ((enemy.getInitiative()) <= warrior.getInitiative()) {
+				int warriorHit = warrior.getHitPoints() - warrior.getWeapon().getExtraHit();
+				int hp = enemy.getHitPoints() - warriorHit;
+				enemy.setHitPoints(hp);
+			} else {
+				int hp = warrior.getHitPoints() - enemy.getHitPoints();
+				sb.append("You was wounded, HP = " + hp);
+				warrior.setHitPoints(hp);
+			}
+
+			if (enemy.getHitPoints() < 0) { 
+				sb.append("You have defeated " + enemy.getName());
+			}
+		}
+		return sb.toString();
 	}
 }

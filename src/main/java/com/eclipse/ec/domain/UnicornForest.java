@@ -39,7 +39,7 @@ public class UnicornForest<T> extends Place implements Occurenable {
     }
 
     @Override
-    public String occurenceAtTimeOfDay() {
+    public String occurrenceAtTimeOfDay() {
         return "Midnight";
     }
 
@@ -55,7 +55,7 @@ public class UnicornForest<T> extends Place implements Occurenable {
 
         for (Enemie enemy : enemies) {
             if (enemy.compareTo(warrior) > 0) {
-                int warriorHit = warrior.getHitPoints() - warrior.getWapen().getExtraHit();
+                int warriorHit = warrior.getHitPoints() - warrior.getWeapon().getExtraHit();
                 int hp = enemy.getHitPoints() - warriorHit;
                 enemy.setHitPoints(hp);
             } else {
@@ -74,8 +74,8 @@ public class UnicornForest<T> extends Place implements Occurenable {
 
     private void fightWithBoss(Warrior warrior) {
         Enemie boss = (Enemie) this.boss;
-        if (boss.getIntiative() <= warrior.getIntiative()) {
-            int hp = boss.getHitPoints() - (warrior.getHitPoints() + warrior.getWapen().getExtraHit());
+        if (boss.getInitiative() <= warrior.getInitiative()) {
+            int hp = boss.getHitPoints() - (warrior.getHitPoints() + warrior.getWeapon().getExtraHit());
             boss.setHitPoints(hp);
             if (boss.getHitPoints() < 0) {
                 System.out.println("You have defeated BOSS");

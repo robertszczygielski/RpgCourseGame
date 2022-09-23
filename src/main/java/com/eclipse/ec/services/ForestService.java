@@ -10,7 +10,7 @@ public class ForestService {
 		Forest forest = new Forest();
 		Zombe teacharZombe = new Zombe();
 		teacharZombe.setRegeneration(1);
-		teacharZombe.setIntiative(20);
+		teacharZombe.setInitiative(20);
 		teacharZombe.setHitPoints(2);
 		teacharZombe.setName("Teacher Zombe");
 		

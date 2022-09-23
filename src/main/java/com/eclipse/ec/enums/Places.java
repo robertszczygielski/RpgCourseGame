@@ -3,7 +3,7 @@ package com.eclipse.ec.enums;
 public enum Places {
 	
 	GRAVEYARD,
-	CASSEL,
+	CASTLE,
 	SWAMP;
 	
 	public boolean isZombePlace() {

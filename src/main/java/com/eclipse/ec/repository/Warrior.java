@@ -1,27 +1,27 @@
 package com.eclipse.ec.repository;
 
 import com.eclipse.ec.enums.Places;
-import com.eclipse.ec.enums.Wapens;
+import com.eclipse.ec.enums.Weapon;
 
 public class Warrior extends Enemie {
 	
-	private Wapens wapen;
-	private Places visitedPalce;
+	private Weapon weapon;
+	private Places visitedPlace;
 
-	public Wapens getWapen() {
-		return wapen;
+	public Weapon getWeapon() {
+		return weapon;
 	}
 
-	public void setWapen(Wapens wapen) {
-		this.wapen = wapen;
+	public void setWeapon(Weapon weapon) {
+		this.weapon = weapon;
 	}
 
-	public Places getVisitedPalce() {
-		return visitedPalce;
+	public Places getVisitedPlace() {
+		return visitedPlace;
 	}
 
-	public void setVisitedPalce(Places visitedPalce) {
-		this.visitedPalce = visitedPalce;
+	public void setVisitedPlace(Places visitedPlace) {
+		this.visitedPlace = visitedPlace;
 	}
 
 }
