@@ -63,4 +63,32 @@ public class Forest extends Place implements Occurenable {
 
 		}
 	}
+
+	public String fightInWeb(Warrior warrior) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Now you see " + enemies.length + " enemies");
+		sb.append("they names are: ");
+		for (Enemie enemy : enemies) {
+			sb.append(enemy.getName() + ", ");
+		}
+		sb.append("========================================================");
+		sb.append("Fight: ");
+
+		for (Enemie enemy : enemies) {
+			if ((enemy.getIntiative()) <= warrior.getIntiative()) {
+				int warriorHit = warrior.getHitPoints() - warrior.getWapen().getExtraHit();
+				int hp = enemy.getHitPoints() - warriorHit;
+				enemy.setHitPoints(hp);
+			} else {
+				int hp = warrior.getHitPoints() - enemy.getHitPoints();
+				sb.append("You was wonded, HP = " + hp);
+				warrior.setHitPoints(hp);
+			}
+
+			if (enemy.getHitPoints() < 0) { 
+				sb.append("You have defited " + enemy.getName());
+			}
+		}
+		return sb.toString();
+	}
 }

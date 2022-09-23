@@ -5,18 +5,20 @@ import com.eclipse.ec.enums.Places;
 import com.eclipse.ec.enums.Wapens;
 import com.eclipse.ec.repository.Warrior;
 import com.eclipse.ec.services.OldCastleService;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Optional;
 import java.util.stream.Stream;
 
-// @SpringBootApplication
+ @SpringBootApplication
 public class EcApplication {
 
-//	public static void main(String[] args) {
-//		SpringApplication.run(EcApplication.class, args);
-//	}
+	public static void main(String[] args) {
+        SpringApplication.run(EcApplication.class, args);
+	}
 
-    public static void main(String[] args) {
+    public static void mainA(String[] args) {
         Optional<Object> nameOfWapen = Stream.of(Wapens.values())
                 .filter(it -> it.getExtraHit() == 5)
                 .findFirst()
