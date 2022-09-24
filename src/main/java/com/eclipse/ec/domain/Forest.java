@@ -10,8 +10,8 @@ public class Forest extends Place implements Occurenable {
 	public Forest() {
 	};
 
-	public Forest(int enemiesAmoutn) {
-		enemies = new Enemie[enemiesAmoutn];
+	public Forest(int enemiesAmount) {
+		enemies = new Enemie[enemiesAmount];
 	}
 
 	public Enemie[] getEnemies() {
@@ -32,7 +32,7 @@ public class Forest extends Place implements Occurenable {
 	}
 
 	@Override
-	public String occurenceAtTimeOfDay() {
+	public String occurrenceAtTimeOfDay() {
 		return "Midnight";
 	}
 
@@ -47,8 +47,8 @@ public class Forest extends Place implements Occurenable {
 		System.out.println("Fight: ");
 
 		for (Enemie enemy : enemies) {
-			if ((enemy.getIntiative()) <= warrior.getIntiative()) {
-				int warriorHit = warrior.getHitPoints() - warrior.getWapen().getExtraHit();
+			if ((enemy.getInitiative()) <= warrior.getInitiative()) {
+				int warriorHit = warrior.getHitPoints() - warrior.getWeapon().getExtraHit();
 				int hp = enemy.getHitPoints() - warriorHit;
 				enemy.setHitPoints(hp);
 			} else {
@@ -75,8 +75,8 @@ public class Forest extends Place implements Occurenable {
 		sb.append("Fight: ");
 
 		for (Enemie enemy : enemies) {
-			if ((enemy.getIntiative()) <= warrior.getIntiative()) {
-				int warriorHit = warrior.getHitPoints() - warrior.getWapen().getExtraHit();
+			if ((enemy.getInitiative()) <= warrior.getInitiative()) {
+				int warriorHit = warrior.getHitPoints() - warrior.getWeapon().getExtraHit();
 				int hp = enemy.getHitPoints() - warriorHit;
 				enemy.setHitPoints(hp);
 			} else {

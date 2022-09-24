@@ -1,6 +1,6 @@
 package com.eclipse.ec.enums;
 
-public enum Wapens {
+public enum Weapons {
 	
 	SWORD(5),
 	DAGGER(3),
@@ -8,7 +8,7 @@ public enum Wapens {
 	
 	private final int extraHit;
 	
-	private Wapens(int extraHit) {
+	private Weapons(int extraHit) {
 		this.extraHit = extraHit;
 	}
 	

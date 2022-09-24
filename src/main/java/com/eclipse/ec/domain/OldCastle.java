@@ -12,8 +12,8 @@ public class OldCastle extends Place implements Occurenable {
     public OldCastle() {
     }
 
-    public OldCastle(int enemiesAmoutn) {
-        enemies = new Enemie[enemiesAmoutn];
+    public OldCastle(int enemiesAmount) {
+        enemies = new Enemie[enemiesAmount];
     }
 
     public Enemie[] getEnemies() {
@@ -24,9 +24,9 @@ public class OldCastle extends Place implements Occurenable {
         this.enemies = enemies;
     }
 
-    public void setEnemies(Enemie characere,
+    public void setEnemies(Enemie character,
                            int idx) {
-        this.enemies[idx] = characere;
+        this.enemies[idx] = character;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class OldCastle extends Place implements Occurenable {
     }
 
     @Override
-    public String occurenceAtTimeOfDay() {
+    public String occurrenceAtTimeOfDay() {
         return "Midnight";
     }
 
@@ -50,8 +50,8 @@ public class OldCastle extends Place implements Occurenable {
         System.out.println("Fight: ");
 
         Arrays.asList(enemies).forEach(enemy -> {
-            if ((enemy.getIntiative()) <= warrior.getIntiative()) {
-                int warriorHit = warrior.getHitPoints() - warrior.getWapen().getExtraHit();
+            if (enemy.getInitiative() <= warrior.getInitiative()) {
+                int warriorHit = warrior.getHitPoints() - warrior.getWeapon().getExtraHit();
                 int hp = enemy.getHitPoints() - warriorHit;
                 enemy.setHitPoints(hp);
             } else {

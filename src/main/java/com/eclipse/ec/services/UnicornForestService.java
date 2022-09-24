@@ -11,7 +11,6 @@ import com.eclipse.ec.repository.Zombe;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class UnicornForestService {
@@ -41,7 +40,7 @@ public class UnicornForestService {
 
         Zombe teacharZombe = new Zombe();
         teacharZombe.setRegeneration(1);
-        teacharZombe.setIntiative(20);
+        teacharZombe.setInitiative(20);
         teacharZombe.setHitPoints(2);
         teacharZombe.setName("Teacher Zombe");
 

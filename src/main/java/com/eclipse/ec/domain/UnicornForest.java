@@ -29,8 +29,8 @@ public class UnicornForest<T> extends Place implements Occurenable {
         this.enemies = enemies;
     }
     
-    public void setEnemies(Enemie characere) {
-        this.enemies.add(characere);
+    public void setEnemies(Enemie character) {
+        this.enemies.add(character);
     }
 
     @Override
@@ -39,7 +39,7 @@ public class UnicornForest<T> extends Place implements Occurenable {
     }
 
     @Override
-    public String occurenceAtTimeOfDay() {
+    public String occurrenceAtTimeOfDay() {
         return "Midnight";
     }
 
@@ -54,18 +54,18 @@ public class UnicornForest<T> extends Place implements Occurenable {
         System.out.println("Fight: ");
 
         for (Enemie enemy : enemies) {
-            if (enemy.compareTo(warrior) > 0) {
-                int warriorHit = warrior.getHitPoints() - warrior.getWapen().getExtraHit();
+            if (enemy.getInitiative() <= warrior.getInitiative()) {
+                int warriorHit = warrior.getHitPoints() - warrior.getWeapon().getExtraHit();
                 int hp = enemy.getHitPoints() - warriorHit;
                 enemy.setHitPoints(hp);
             } else {
                 int hp = warrior.getHitPoints() - enemy.getHitPoints();
-                System.out.println("You was wonded, HP = " + hp);
+                System.out.println("You was wounded, HP = " + hp);
                 warrior.setHitPoints(hp);
             }
 
             if (enemy.getHitPoints() < 0) {
-                System.out.println("You have defited " + enemy);
+                System.out.println("You have defeated " + enemy);
             }
         }
         
@@ -74,8 +74,8 @@ public class UnicornForest<T> extends Place implements Occurenable {
 
     private void fightWithBoss(Warrior warrior) {
         Enemie boss = (Enemie) this.boss;
-        if (boss.getIntiative() <= warrior.getIntiative()) {
-            int hp = boss.getHitPoints() - (warrior.getHitPoints() + warrior.getWapen().getExtraHit());
+        if (boss.getInitiative() <= warrior.getInitiative()) {
+            int hp = boss.getHitPoints() - (warrior.getHitPoints() + warrior.getWeapon().getExtraHit());
             boss.setHitPoints(hp);
             if (boss.getHitPoints() < 0) {
                 System.out.println("You have defeated BOSS");

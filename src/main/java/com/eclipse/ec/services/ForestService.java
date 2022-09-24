@@ -10,11 +10,14 @@ public class ForestService {
 		Forest forest = new Forest();
 		Zombe teacharZombe = new Zombe();
 		teacharZombe.setRegeneration(1);
-		teacharZombe.setIntiative(20);
+		teacharZombe.setInitiative(20);
 		teacharZombe.setHitPoints(2);
 		teacharZombe.setName("Teacher Zombe");
 		
 		Enemie dogZombe = new Zombe();
+		dogZombe.setInitiative(10);
+		dogZombe.setHitPoints(2);
+		dogZombe.setName("Zombe Dog");
 		
 		Enemie[] enemies = { teacharZombe, dogZombe };
 		forest.setEnemies(enemies);
